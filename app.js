@@ -90,7 +90,7 @@ const subMenu = () => {
   })
     .then(({ action }) => {
       switch (action) {
-        case 'Add Another Employee':
+        case 'Make Another Employee':
           mainMenu()
           break
         case 'Finish':
@@ -108,7 +108,7 @@ const mainMenu = () => {
     {
       type: 'list',
       name: 'type',
-      choices: ['General Employee', 'Manager', 'Engineer', 'Intern'],
+      choices: ['Manager', 'Engineer', 'Intern'],
       message: 'Select employee type: '
     },
     {
@@ -129,10 +129,6 @@ const mainMenu = () => {
   ])
     .then(employee => {
       switch (employee.type) {
-        case 'General Employee':
-          employees.push(new Employee(employee.name, employee.quantity, employee.price))
-          subMenu()
-          break
         case 'Manager':
           buildManager(employee)
           break
